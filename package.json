@@ -1,0 +1,14 @@
+{
+  "name": "buscador",
+  "version": "1.0.0",
+  "description": "A sample search engine",
+  "main": "simplificacao.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LuizTools",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.5.9"
+  }
+}
