@@ -14,10 +14,6 @@ Exemplo simples de motor de busca com Node.js e MongoDB, apresentado em seminár
 
 6. Revise a connection string no arquivo /app/routes/index.js e execute 'npm start' dentro da pasta app.
 
-# Atenção
-
-Este projeto não contém boas práticas de programação, ele foi feito durante seminário online, em 30min. Publiquei aqui no GitHub apenas para que a audiência possa clonar e ver em mais detalhes tudo que foi feito.
-
 # Referências
 
 Teoria: https://www.luiztools.com.br/post/como-criar-um-mecanismo-de-busca/ 
