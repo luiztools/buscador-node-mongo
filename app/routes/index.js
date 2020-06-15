@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
-function simplify(text){
-  const regex = /[\s,\.;:\(\)\-'\+]/;
-  return text.toUpperCase().split(regex);
-}
+const simplify = require('../../simplify');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -12,14 +8,11 @@ router.get('/', function(req, res, next) {
     return res.render('index', { title: 'Motor de Busca', movies: [], query: '' });
   else {
     const query = simplify(req.query.q);
-    const mongoClient = require("mongodb").MongoClient;
-    mongoClient.connect("mongodb://localhost:27017")
-               .then(conn => conn.db("netflix"))
-               .then(db => db.collection("movies2").find({tags: {$all: query }}))
-               .then(cursor => cursor.toArray())
-               .then(movies => {
-                 return res.render('index', {title: 'Motor de Busca', movies, query: req.query.q});
-               })
+    console.log(query);
+    require('../../db')()
+        .then(db => db.collection("movies2").find({tags: {$all: query }}))
+        .then(cursor => cursor.toArray())
+        .then(movies => res.render('index', {title: 'Motor de Busca', movies, query: req.query.q}));
   }
 });
 
